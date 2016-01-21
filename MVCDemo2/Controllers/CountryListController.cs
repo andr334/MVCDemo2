@@ -39,27 +39,6 @@ namespace MVCDemo2.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        private static List<CountryList> GetCountryListViaAdoNet()
-        {
-            var list = new List<CountryList>();
-            using (
-                var con = new SqlConnection("Data Source=fx-db-qa,2555;Initial Catalog=FXNET;Integrated Security=True"))
-            {
-                con.Open();
-                var comm = new SqlCommand("SELECT * FROM CountryList", con);
-                var reader = comm.ExecuteReader();
-                while (reader.Read())
-                {
-                    list.Add(new CountryList
-                    {
-                        CountryID = (int) reader["CountryID"],
-                        Code = reader["Code"].ToString(),
-                        English = (string) reader["English"],
-                        Hebrew = (string) reader["Hebrew"]
-                    });
-                }
-            }
-            return list;
-        }
+      
     }
 }
