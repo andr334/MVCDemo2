@@ -1,0 +1,47 @@
+﻿@model MVCDemo2.Models.CountryList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CountryList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CountryID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CountryID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.English)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.English)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hebrew)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hebrew)
+        </dd>
+
+    </dl>
+</div>
+
