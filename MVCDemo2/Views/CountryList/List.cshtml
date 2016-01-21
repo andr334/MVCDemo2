@@ -1,44 +1,53 @@
-﻿<html>
-<head>
-    <title>Ko List</title>
-</head>
-<body></body>
-</html>
-<h2>KO List</h2>
+﻿@model IEnumerable<MVCDemo2.Models.CountryList>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-debug.js"></script>
-<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
-            CountryID
+            @Html.DisplayNameFor(model => model.CountryID)
         </th>
         <th>
-            Code
+            @Html.DisplayNameFor(model => model.Code)
         </th>
         <th>
-            English
+            @Html.DisplayNameFor(model => model.English)
         </th>
         <th>
-            Hebrew
+            @Html.DisplayNameFor(model => model.Hebrew)
         </th>
-        <th>Actyions</th>
+        <th>
+            Action
+        </th>
     </tr>
-    <tbody data-bind="foreach: $data">
+
+@foreach (var item in Model) {
     <tr>
-        <td data-bind="text: CountryID"></td>
-        <td data-bind="text: Code"></td>
-        <td data-bind="text: English"></td>
-        <td data-bind="text: Hebrew"></td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountryID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.English)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hebrew)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {id = item.CountryID}) |
+            @Html.ActionLink("Details", "Details", new {id = item.CountryID}) |
+            @Html.ActionLink("Delete", "Delete", new {id = item.CountryID})
+        </td>
     </tr>
-    </tbody>
-    
+}
+
 </table>
-
-
-<script>
-    $.get('data').then(function (dt) {
-        var model = { countries: dt };
-        ko.applyBindings(dt);
-    })
-</script>

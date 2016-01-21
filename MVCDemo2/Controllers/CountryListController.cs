@@ -20,25 +20,10 @@ namespace MVCDemo2.Controllers
 
         public ActionResult List()
         {
-            var lista = GetCountryListsViaEntity();
-
-            return View(lista);
-        }
-
-        private static DbSet<CountryList> GetCountryListsViaEntity()
-        {
             var countryListContext = new CountryListContext();
-            var lista = countryListContext.CountryList;
-            return lista;
+            var list = countryListContext.CountryList;
+
+            return View(list);
         }
-
-        public ActionResult Data()
-        {
-            var list = GetCountryListsViaEntity();
-
-            return Json(list, JsonRequestBehavior.AllowGet);
-        }
-
-      
     }
 }
